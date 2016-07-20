@@ -15,6 +15,7 @@
   <label for="person">Please enter your first name followed by your last name:</label>
   <input type="text" name="person" ng-model="patronusAssigner.addPerson()"/>
   <br />
+
   <div class="list">
     <p ng-repeat="item in patronusAssigner.person track by $index">{{item[$index].first_name}} {{item[$index].last_name}}</p>
   </div>
