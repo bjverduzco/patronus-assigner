@@ -10,15 +10,20 @@
 <body ng-controller="PatronusAssignerController as patronusAssigner">
   <h1>Make the magic happen:</h1>
   <h2>Patronus Assigner</h2>
-  <label for="name">Please enter your first name followed by your last name:</label>
-  <input type="text" name="name" ng-model="patronusAssigner.name"/>
+  <label for="person">Please enter your first name followed by your last name:</label>
+  <input type="text" name="person" ng-model="patronusAssigner.addPerson"/>
   <br />
-  {{patronusAssigner.name}}
+  <div class="list">
+    <p ng-repeat="item in patronusAssigner.person track by $index">{{item[$index].first_name}} {{item[$index].last_name}}</p>
+  </div>
   <br />
   <label for="patronus">Please enter the patronus type:</label>
-  <input type="text" name="patronus" ng-model="patronusAssigner.patronus" />
+  <input type="text" name="patronus" ng-model="patronusAssigner.addPatronus" />
   <br />
-  {{patrounsAssigner.patronus}}
+  <div class="list">
+    <p ng-repeat="item in patronusAssigner.patronus track by $index">{{item[$index].patronus_name}}</p>
+  </div>
+
 
 
 </body>
