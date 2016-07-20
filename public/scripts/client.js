@@ -31,11 +31,13 @@ app.controller('PatronusAssignerController', function($http) {
   }
 
   function getInfo() {
-    $http(configPerson).then(configPatronus).then(handlePersonSuccess, handlePatronusSuccess, handleFailure);
+    $http(configPerson).then(handlePersonSuccess, handleFailure);
+    $http(configPatronus).then(handlePatronusSuccess, handleFailure);
   }
 
   vm.addPerson = function() {
     var data = vm.newPerson;
+    console.log(data);
     $http.post('/addPerson', data).then(function(response) {
       console.log(response);
     }, function(response) {
@@ -51,4 +53,6 @@ app.controller('PatronusAssignerController', function($http) {
       console.log(response);
     })
   };
+
+  getInfo();
 });
