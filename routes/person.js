@@ -57,7 +57,11 @@ router.get('/get', function(request, response){
         console.log('Query error, go back to beginner charms class Harry!!', err);
         response.sendStatus(500);
       } else {
+<<<<<<< HEAD
         console.log('Y\'r a wizard Harry!!!', peopleList);
+=======
+        console.log('Y\'r a wizard Harry!!! ', response);
+>>>>>>> 0e8291c9d5b60e69e7fcde9df0d7b33053848338
         response.sendStatus(200);
       }
 
