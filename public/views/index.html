@@ -4,21 +4,23 @@
   <meta charset="utf-8" />
   <title>Patronus Assigner</title>
   <link rel="stylesheet" type="text/css" href="../styles/styles.css" />
-  <link rel="bootstrap" type="text/css" href="../vendor/bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../vendor/bootstrap/dist/css/bootstrap.min.css" />
+  <link href="https://fonts.googleapis.com/css?family=Mirza|Montserrat" rel="stylesheet">
   <script src="../vendor/angular.min.js" charset="utf-8"></script>
+  <script src="../scripts/client.js"></script>
 </head>
 <body ng-controller="PatronusAssignerController as patronusAssigner">
   <h1>Make the magic happen:</h1>
   <h2>Patronus Assigner</h2>
   <label for="person">Please enter your first name followed by your last name:</label>
-  <input type="text" name="person" ng-model="patronusAssigner.addPerson"/>
+  <input type="text" name="person" ng-model="patronusAssigner.addPerson()"/>
   <br />
   <div class="list">
     <p ng-repeat="item in patronusAssigner.person track by $index">{{item[$index].first_name}} {{item[$index].last_name}}</p>
   </div>
   <br />
   <label for="patronus">Please enter the patronus type:</label>
-  <input type="text" name="patronus" ng-model="patronusAssigner.addPatronus" />
+  <input type="text" name="patronus" ng-model="patronusAssigner.addPatronus()" />
   <br />
   <div class="list">
     <p ng-repeat="item in patronusAssigner.patronus track by $index">{{item[$index].patronus_name}}</p>
