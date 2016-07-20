@@ -1,6 +1,6 @@
 var router = require('express').Router();
 
-app.post('/addPatronus', function(request, response){
+router.post('/addPatronus', function(request, response){
 
   var client = new pg.Client(config);
   var patronusName = [];
@@ -9,14 +9,14 @@ app.post('/addPatronus', function(request, response){
   patronusName = request.body.patronus;
   client.connect(function(err){
     if(err){
-      console.log('Connection error', err);
+      console.log('Connection error, no Quidditch for you!', err);
     }
     client.query('INSERT INTO patronus (patronus_name) VALUES ($1)', [patronusName], function(err){
       if(err){
-        console.log('Query error', err);
+        console.log('Query error, no Quidditch for you!', err);
         response.sendStatus(500);
       } else {
-        console.log('Great success');
+        console.log('Y\'r a wizard Harry!!!');
         response.sendStatus(200);
       }
 
@@ -31,25 +31,24 @@ app.post('/addPatronus', function(request, response){
 
 })
 
-app.get('/getPatronus', function(request, response){
+router.get('/getPatronus', function(request, response){
   var client = new pg.Client(config);
 
+  var patronusList = {};
 
   client.connect(function(err){
     if(err){
-      console.log('Connection error', err);
+      console.log('Connection error, no Quidditch for you!', err);
     }
     client.query('SELECT patronus_name FROM patronus;', function(err, result){
-      var patronusList = {};
       console.log(result.rows);
       patronusList = result.rows;
       if(err){
-        console.log('Query error', err);
+        console.log('Query error, no Quidditch for you!', err);
         response.sendStatus(500);
       } else {
-        console.log('Great success', taskList);
-        response.send(taskList);
-        response.sendStatus(200);
+        console.log('Y\'r a wizard Harry!!!', taskList);
+        response.send(patronusList);
       }
 
       client.end(function(err){
