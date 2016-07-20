@@ -1,4 +1,10 @@
 var router = require('express').Router();
+var pg = require('pg');
+
+var config = {
+  database: 'patronus_assigner',
+  port: 5432
+};
 
 router.post('/add', function(request, response){
 
@@ -38,18 +44,20 @@ router.post('/add', function(request, response){
 
 router.get('/get', function(request, response){
   var client = new pg.Client(config);
-  var people = {};
+  var peopleList = {};
 
   client.connect(function(err){
     if(err){
       console.log('Connection error, please fix your wand.', err);
     }
-    client.query('SELECT first_name, last_name FROM people', function(err, response){
+    client.query('SELECT first_name, last_name FROM people', function(err, result){
+      console.log(result.rows);
+      peopleList = result.rows;
       if(err){
         console.log('Query error, go back to beginner charms class Harry!!', err);
         response.sendStatus(500);
       } else {
-        console.log('Y\'r a wizard Harry!!!', response);
+        console.log('Y\'r a wizard Harry!!!', peopleList);
         response.sendStatus(200);
       }
 

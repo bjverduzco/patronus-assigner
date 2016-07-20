@@ -1,6 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-var pg = require ('pg');
+var pg = require('pg');
 var index = require('./routes/index');
 var person = require('./routes/person');
 var patronus = require('./routes/patronus');

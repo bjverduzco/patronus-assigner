@@ -1,4 +1,10 @@
 var router = require('express').Router();
+var pg = require('pg');
+
+var config = {
+  database: 'patronus_assigner',
+  port: 5432
+};
 
 router.post('/add', function(request, response){
 
@@ -47,7 +53,7 @@ router.get('/get', function(request, response){
         console.log('Query error, go back to beginner charms class!', err);
         response.sendStatus(500);
       } else {
-        console.log('Y\'r a wizard Harry!!!', taskList);
+        console.log('Y\'r a wizard Harry!!! ', patronusList);
         response.send(patronusList);
       }
 
