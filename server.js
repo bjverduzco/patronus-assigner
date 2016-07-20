@@ -19,8 +19,10 @@ app.use(bodyParser.json());
 
 // Routers
 app.use('/', index);
-app.use('/person', person);
-app.use('/patronus', patronus);
+app.use('/getPerson', person);
+app.use('/getPatronus', patronus);
+app.use('/addPerson', person);
+app.use('/addPatronus', patronus);
 
 var server = app.listen(process.env.PORT || 3000, function(){
   var port = server.address().port;
