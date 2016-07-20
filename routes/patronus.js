@@ -3,9 +3,10 @@ var router = require('express').Router();
 app.post('/addPatronus', function(request, response){
 
   var client = new pg.Client(config);
+  var patronusName = [];
 
   console.log(request.body);
-  var patronusName = request.body.task;
+  patronusName = request.body.patronus;
   client.connect(function(err){
     if(err){
       console.log('Connection error', err);
