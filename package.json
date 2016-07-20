@@ -19,6 +19,7 @@
   "homepage": "https://github.com/bjverduzco/patronus-assigner#readme",
   "dependencies": {
     "angular": "^1.5.7",
+    "body-parser": "^1.15.2",
     "bootstrap": "^3.3.6",
     "express": "^4.14.0",
     "pg": "^6.0.3"
