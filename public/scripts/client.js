@@ -3,26 +3,26 @@ var app = angular.module('patronusAssignerApp', []);
 app.controller('PatronusAssignerController', function($http) {
   var vm = this;
 
-  var personList = [];
-  var patronusList = [];
+  vm.person = [];
+  vm.patronus = [];
 
   var configPerson = {
     method: 'GET',
-    url: '/person'
+    url: '/getPerson'
   }
 
   var configPatronus = {
     method: 'GET',
-    url: '/patronus'
+    url: '/getPatronus'
   }
 
   function handlePersonSuccess(response) {
-    personList.push(response.data);
+    vm.person = response.data;
     console.log('Success regarding personList', response);
   }
 
   function handlePatronusSuccess(response) {
-    patronusList.push(response.data);
+    vm.patronus = response.data;
     console.log('Success regarding patronusList', response);
   }
 
@@ -31,8 +31,24 @@ app.controller('PatronusAssignerController', function($http) {
   }
 
   function getInfo() {
-
-    }
+    $http(configPerson).then(configPatronus).then(handlePersonSuccess, handlePatronusSuccess, handleFailure);
   }
 
-})
+  vm.addPerson = function() {
+    var data = {};
+    $http.post('/addPerson', data).then(function(response) {
+      console.log(response);
+    }, function(response) {
+      console.log(response);
+    })
+  };
+
+  vm.addPatronus = function() {
+    var data = {};
+    $http.post('/addPatronus', data).then(function(response) {
+      console.log(response);
+    }, function(response) {
+      console.log(response);
+    })
+  };
+});
