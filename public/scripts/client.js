@@ -8,12 +8,12 @@ app.controller('PatronusAssignerController', function($http) {
 
   var configPerson = {
     method: 'GET',
-    url: '/getPerson'
+    url: '/person/get'
   }
 
   var configPatronus = {
     method: 'GET',
-    url: '/getPatronus'
+    url: '/patronus/get'
   }
 
   function handlePersonSuccess(response) {
@@ -36,9 +36,9 @@ app.controller('PatronusAssignerController', function($http) {
   }
 
   vm.addPerson = function() {
-    var data = vm.newPerson;
+    var data = {patronus: vm.newPerson};
     console.log(data);
-    $http.post('/addPerson', data).then(function(response) {
+    $http.post('/person/add', data).then(function(response) {
       console.log(response);
     }, function(response) {
       console.log(response);
@@ -46,8 +46,9 @@ app.controller('PatronusAssignerController', function($http) {
   };
 
   vm.addPatronus = function() {
-    var data = vm.newPatronus;
-    $http.post('/addPatronus', data).then(function(response) {
+    var data = {patronus: vm.newPatronus};
+    console.log(data);
+    $http.post('/patronus/add', data).then(function(response) {
       console.log(response);
     }, function(response) {
       console.log(response);

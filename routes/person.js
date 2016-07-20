@@ -1,6 +1,6 @@
 var router = require('express').Router();
 
-router.post('/addPerson', function(request, response){
+router.post('/add', function(request, response){
 
   var client = new pg.Client(config);
   var peopleFirstName = [];
@@ -35,7 +35,7 @@ router.post('/addPerson', function(request, response){
 
 })
 
-router.get('/getPeople', function(request, response){
+router.get('/get', function(request, response){
   var client = new pg.Client(config);
   var people = {};
 
