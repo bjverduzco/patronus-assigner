@@ -35,7 +35,7 @@ app.controller('PatronusAssignerController', function($http) {
   }
 
   vm.addPerson = function() {
-    var data = {};
+    var data = response.data;
     $http.post('/addPerson', data).then(function(response) {
       console.log(response);
     }, function(response) {
@@ -44,7 +44,7 @@ app.controller('PatronusAssignerController', function($http) {
   };
 
   vm.addPatronus = function() {
-    var data = {};
+    var data = response.data;
     $http.post('/addPatronus', data).then(function(response) {
       console.log(response);
     }, function(response) {
