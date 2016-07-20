@@ -1,6 +1,6 @@
 var router = require('express').Router();
 
-app.post('/addPeople', function(request, response){
+router.post('/addPerson', function(request, response){
 
   var client = new pg.Client(config);
   var peopleFirstName = [];
@@ -12,15 +12,43 @@ app.post('/addPeople', function(request, response){
 
   client.connect(function(err){
     if(err){
-      console.log('Connection error', err);
+      console.log('Connection error, go fix your wand.', err);
     }
     client.query('INSERT INTO people (first_name, last_name) VALUES ($1, $2)',
       [peopleFirstName], [peopleLastName], function(err){
       if(err){
-        console.log('Query error', err);
+        console.log('Query error, go back to beginner charms class Harry!!', err);
         response.sendStatus(500);
       } else {
-        console.log('Great success');
+        console.log('Y\'r a wizard Harry!!!');
+        response.sendStatus(200);
+      }
+
+      client.end(function(err){
+        if(err){
+          console.log('Disconnect error', err);
+        }
+      })
+
+    })
+  })
+
+})
+
+router.get('/getPeople', function(request, response){
+  var client = new pg.Client(config);
+  var people = {};
+
+  client.connect(function(err){
+    if(err){
+      console.log('Connection error, please fix your wand.', err);
+    }
+    client.query('SELECT first_name, last_name FROM people', function(err, response){
+      if(err){
+        console.log('Query error, go back to beginner charms class Harry!!', err);
+        response.sendStatus(500);
+      } else {
+        console.log('Y\'r a wizard Harry!!!', response);
         response.sendStatus(200);
       }
 
