@@ -13,8 +13,8 @@
   <h1>Make the magic happen:</h1>
   <h2>Patronus Assigner</h2>
   <label for="person">Please enter your first name followed by your last name:</label>
-  <input type="text" name="person" ng-model="patronusAssigner.person"/>
-  <button ng-click="addPerson()">Add Person</button>
+  <input type="text" name="person" ng-model="patronusAssigner.newPerson"/>
+  <button ng-click="patronusAssigner.addPerson()">Add Person</button>
   <br />
 
   <div class="list">
@@ -22,8 +22,8 @@
   </div>
   <br />
   <label for="patronus">Please enter the patronus type:</label>
-  <input type="text" name="patronus" ng-model="patronusAssigner.patronus" />
-  <button ng-click="addPatronus()">Add Patronus</button>
+  <input type="text" name="patronus" ng-model="patronusAssigner.newPatronus" />
+  <button ng-click="patronusAssigner.addPatronus()">Add Patronus</button>
   <br />
   <div class="list">
     <p ng-repeat="item in patronusAssigner.patronus track by $index">{{item[$index].patronus_name}}</p>
