@@ -2,7 +2,7 @@ var router = require('express').Router();
 
 router.post('/addPerson', function(request, response){
 
-  var client = new pg.Client(config);
+
   var peopleFirstName = [];
   var peopleLastName = [];
 
@@ -11,6 +11,7 @@ router.post('/addPerson', function(request, response){
   peopleLastName = request.body.lastName;
 
   client.connect(function(err){
+    var client = new pg.Client(config);
     if(err){
       console.log('Connection error, go fix your wand.', err);
     }

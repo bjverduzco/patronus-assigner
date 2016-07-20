@@ -46,7 +46,9 @@ app.controller('PatronusAssignerController', function($http) {
   };
 
   vm.addPatronus = function() {
-    var data = vm.newPatronus;
+    var data = {};
+    data = vm.newPatronus;
+    console.log(data);
     $http.post('/addPatronus', data).then(function(response) {
       console.log(response);
     }, function(response) {

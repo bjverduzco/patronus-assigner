@@ -13,7 +13,7 @@ router.post('/addPatronus', function(request, response){
     }
     client.query('INSERT INTO patronus (patronus_name) VALUES ($1)', [patronusName], function(err){
       if(err){
-        console.log('Query error, no Quidditch for you!', err);
+        console.log('Query error, go back to beginner charms class!', err);
         response.sendStatus(500);
       } else {
         console.log('Y\'r a wizard Harry!!!');
@@ -44,7 +44,7 @@ router.get('/getPatronus', function(request, response){
       console.log(result.rows);
       patronusList = result.rows;
       if(err){
-        console.log('Query error, no Quidditch for you!', err);
+        console.log('Query error, go back to beginner charms class!', err);
         response.sendStatus(500);
       } else {
         console.log('Y\'r a wizard Harry!!!', taskList);
