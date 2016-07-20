@@ -5,7 +5,6 @@ app.controller('PatronusAssignerController', function($http) {
 
   var personList = [];
   var patronusList = [];
-  var pairsList = [];
 
   var configPerson = {
     method: 'GET',
@@ -19,13 +18,11 @@ app.controller('PatronusAssignerController', function($http) {
 
   function handlePersonSuccess(response) {
     personList.push(response.data);
-    personList[0] = shuffle(personList[0]);
     console.log('Success regarding personList', response);
   }
 
   function handlePatronusSuccess(response) {
     patronusList.push(response.data);
-    patronusList[0] = shuffle(patronusList[0]);
     console.log('Success regarding patronusList', response);
   }
 
@@ -35,6 +32,7 @@ app.controller('PatronusAssignerController', function($http) {
 
   function getInfo() {
 
+    }
   }
 
 })
