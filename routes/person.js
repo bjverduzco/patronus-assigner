@@ -6,23 +6,19 @@ var config = {
   port: 5432
 };
 
-router.post('/add', function(request, response){
+router.post('/', function(request, response){
+  var client = new pg.Client(config);
 
-
-  var peopleFirstName = [];
-  var peopleLastName = [];
 
   console.log(request.body);
-  peopleFirstName = request.body.firstName;
-  peopleLastName = request.body.lastName;
-
+  var personFirstName = request.body.first_name;
+  var personLastName = request.body.last_name;
   client.connect(function(err){
-    var client = new pg.Client(config);
     if(err){
       console.log('Connection error, go fix your wand.', err);
     }
     client.query('INSERT INTO people (first_name, last_name) VALUES ($1, $2)',
-      [peopleFirstName], [peopleLastName], function(err){
+      [personFirstName, personLastName], function(err){
       if(err){
         console.log('Query error, go back to beginner charms class Harry!!', err);
         response.sendStatus(500);
@@ -42,7 +38,7 @@ router.post('/add', function(request, response){
 
 })
 
-router.get('/get', function(request, response){
+router.get('/', function(request, response){
   var client = new pg.Client(config);
   var peopleList = {};
 
@@ -50,16 +46,15 @@ router.get('/get', function(request, response){
     if(err){
       console.log('Connection error, please fix your wand.', err);
     }
-    client.query('SELECT first_name, last_name FROM people', function(err, result){
-      console.log(result.rows);
-      peopleList = result.rows;
+    client.query('SELECT pp.id, pp.first_name, pp.last_name, pp.patronus_id, pt.patronus_name FROM people AS pp LEFT OUTER JOIN patronus AS pt ON pt.id = pp.patronus_id',
+    function(err, result){
       if(err){
         console.log('Query error, go back to beginner charms class Harry!!', err);
         response.sendStatus(500);
       } else {
+        peopleList = result.rows;
         console.log('Y\'r a wizard Harry!!!', peopleList);
-        console.log('Y\'r a wizard Harry!!! ', response);
-        response.sendStatus(200);
+        response.send(peopleList);
       }
 
       client.end(function(err){

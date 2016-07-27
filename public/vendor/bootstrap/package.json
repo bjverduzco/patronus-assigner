@@ -3,16 +3,16 @@
     [
       {
         "name": "bootstrap",
-        "raw": "bootstrap",
-        "rawSpec": "",
+        "raw": "bootstrap@^3.3.6",
+        "rawSpec": "^3.3.6",
         "scope": null,
-        "spec": "latest",
-        "type": "tag"
+        "spec": ">=3.3.6 <4.0.0",
+        "type": "range"
       },
-      "/Users/brianqanderson/Workspace/patronus-assigner"
+      "/Users/brianqanderson/Workspace/patronus_assigner_v2"
     ]
   ],
-  "_from": "bootstrap@latest",
+  "_from": "bootstrap@>=3.3.6 <4.0.0",
   "_id": "bootstrap@3.3.6",
   "_inCache": true,
   "_installable": true,
@@ -26,11 +26,11 @@
   "_phantomChildren": {},
   "_requested": {
     "name": "bootstrap",
-    "raw": "bootstrap",
-    "rawSpec": "",
+    "raw": "bootstrap@^3.3.6",
+    "rawSpec": "^3.3.6",
     "scope": null,
-    "spec": "latest",
-    "type": "tag"
+    "spec": ">=3.3.6 <4.0.0",
+    "type": "range"
   },
   "_requiredBy": [
     "/"
@@ -38,8 +38,8 @@
   "_resolved": "https://registry.npmjs.org/bootstrap/-/bootstrap-3.3.6.tgz",
   "_shasum": "8de8f749dc8a743f2ac5b510d988371e3daa6589",
   "_shrinkwrap": null,
-  "_spec": "bootstrap",
-  "_where": "/Users/brianqanderson/Workspace/patronus-assigner",
+  "_spec": "bootstrap@^3.3.6",
+  "_where": "/Users/brianqanderson/Workspace/patronus_assigner_v2",
   "author": {
     "name": "Twitter, Inc."
   },

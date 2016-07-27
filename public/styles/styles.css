@@ -1,9 +1,57 @@
 body {
-  font-family: 'Montserrat', sans-serif;
-  font-family: 'Mirza', cursive;
   background: burlywood;
 }
 
 h1 {
-  font-family: 'Mirza';
+  font-family: 'Vesper Libre', serif;
+  font-weight: 900;
+  font-size: 40px;
+  color: darkred;
+  text-transform: uppercase;
 }
+
+h1 small {
+  font-family: 'Quattrocento Sans', sans-serif;
+  color: darkslategrey;
+  text-transform: none;
+}
+
+h2 {
+  font-family: 'Quattrocento Sans', sans-serif;
+}
+
+p {
+  font-family: 'Quattrocento Sans', sans-serif;
+}
+
+p.lists {
+  text-transform: capitalize;
+}
+
+.display {
+  width: 50%;
+  float: left;
+}
+
+.submitButton {
+  margin: 0 auto;
+  text-align: center;
+  padding-bottom: 15px;
+}
+
+.myLabel {
+  margin-top: 10px;
+}
+
+.underline {
+  padding-bottom: 5px;
+  border-bottom: 1px solid darkred;
+}
+
+/*.header_font {
+  font-family: 'Vesper Libre', serif;
+}
+
+.body_font {
+  font-family: 'Quattrocento Sans', sans-serif;
+}*/
